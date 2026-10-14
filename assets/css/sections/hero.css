@@ -1,0 +1,126 @@
+/* ==========================================================================
+   HERO
+   Section pembuka beranda: judul ECLIPSE + tagline + CTA, dengan 5 awan
+   melayang di belakang logo kabinet. Ukuran/posisi awan beda antara mobile
+   & desktop (diambil dari kedua board di canvas), bukan cuma diskalakan.
+   ========================================================================== */
+
+.hero {
+  padding-block: 2rem 3.5rem;
+}
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.hero__period { align-self: flex-start; }
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-hero-title);
+  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+/* Tiap huruf "ECLIPSE" muncul satu-satu (dibungkus span di HTML dengan
+   --i:0..6 sebagai urutan). Jeda dihitung dari --i supaya urutannya rapi
+   tanpa perlu 7 baris CSS terpisah. */
+.hero__char {
+  display: inline-block;
+  opacity: 0;
+  animation: charRise 0.9s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 0.07s + 0.15s);
+}
+
+.hero__tagline {
+  margin: 0;
+  font-size: var(--fs-tagline);
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.hero__org {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.hero__visual {
+  position: relative;
+  height: 21.25rem;
+  margin: 0.5rem -1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero__logo {
+  position: relative;
+  z-index: 1;
+  width: 16.875rem;
+  height: 15.375rem;
+  object-fit: contain;
+}
+
+@media (min-width: 900px) {
+  .hero { padding-block: 2.5rem 7rem; }
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero__actions { flex-direction: row; align-items: center; gap: 0.875rem; }
+  .hero__visual { height: 35rem; margin: 0; overflow: visible; }
+  .hero__logo { width: 26.25rem; height: 23.875rem; }
+}
+
+/* --- Awan --- */
+.cloud {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+.cloud img {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: bob 6s ease-in-out infinite;
+}
+/* Arah geser kiri-kanan berselang-seling supaya awan tidak terlihat
+   bergerak serempak ke arah yang sama */
+.cloud--1, .cloud--4, .cloud--5 { animation: driftR var(--dur) ease-in-out infinite alternate; }
+.cloud--2, .cloud--3 { animation: driftL var(--dur) ease-in-out infinite alternate; }
+
+.cloud--1 { left: -2.5rem; top: 1.5rem; width: 11.25rem; opacity: 0.95; --dur: 17s; }
+.cloud--1 img { animation-delay: -3s; }
+.cloud--2 { left: 12.5rem; top: 0.375rem; width: 9.375rem; opacity: 0.85; --dur: 21s; }
+.cloud--2 img { animation-delay: -8s; }
+.cloud--3 { left: -3.125rem; top: 11.875rem; width: 8.75rem; opacity: 0.8; --dur: 19s; }
+.cloud--3 img { animation-delay: -5s; }
+.cloud--4 { left: 14.375rem; top: 12.5rem; width: 9.375rem; opacity: 0.9; --dur: 23s; }
+.cloud--4 img { animation-delay: -11s; }
+.cloud--5 { left: 1.25rem; top: 16.375rem; width: 15.625rem; opacity: 0.95; --dur: 26s; }
+.cloud--5 img { animation-delay: -2s; }
+
+@media (min-width: 900px) {
+  .cloud--1 { left: -1.875rem; top: 2.5rem; width: 18.75rem; }
+  .cloud--2 { left: 20.625rem; top: 0.625rem; width: 14.375rem; }
+  .cloud--3 { left: -3.75rem; top: 18.75rem; width: 13.75rem; }
+  .cloud--4 { left: 22.5rem; top: 20.625rem; width: 15rem; }
+  .cloud--5 { left: 3.75rem; top: 27.5rem; width: 23.75rem; }
+}

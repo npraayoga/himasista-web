@@ -1,0 +1,18 @@
+/* ==========================================================================
+   PROGRAM KERJA (beranda)
+   Band navy berisi header + 2 kartu Megaproker. Kartunya di card-mega.css.
+   ========================================================================== */
+
+.proker {
+  padding-block: 4.5rem;
+}
+/* Header & kartu megaproker ada di dalam .container → jarak diatur di sini */
+.proker > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+@media (min-width: 900px) {
+  .proker { padding-block: 7.5rem; }           /* 120px atas & bawah, sesuai desain */
+  .proker > .container { gap: 4rem; }           /* 64px header → kartu */
+}
