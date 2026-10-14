@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HIMASISTA Untag Surabaya — Kabinet ECLIPSE 2026/2027</title>
+  <meta name="description" content="Himpunan Mahasiswa Sistem Informasi Universitas 17 Agustus 1945 Surabaya. Profil, departemen, program kerja, dan berita terbaru HIMASISTA.">
+
+  <!-- Preview saat link dibagikan (WhatsApp, Instagram, dll.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HIMASISTA Untag Surabaya">
+  <meta property="og:description" content="Ruang tumbuh mahasiswa Sistem Informasi Untag Surabaya.">
+  <meta property="og:image" content="assets/images/meta/og-image.jpg">
+  <link rel="icon" type="image/png" href="assets/images/meta/favicon.png">
+
+  <!-- Font: Unbounded (judul) + Plus Jakarta Sans (isi) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+
+  <!-- CSS: urutan penting → base → layout → components → sections → utilities -->
+  <link rel="stylesheet" href="assets/css/base/tokens.css">
+  <link rel="stylesheet" href="assets/css/base/reset.css">
+  <link rel="stylesheet" href="assets/css/base/typography.css">
+  <link rel="stylesheet" href="assets/css/layout/container.css">
+  <link rel="stylesheet" href="assets/css/layout/section.css">
+  <link rel="stylesheet" href="assets/css/components/navbar.css">
+  <link rel="stylesheet" href="assets/css/components/mobile-menu.css">
+  <link rel="stylesheet" href="assets/css/components/button.css">
+  <link rel="stylesheet" href="assets/css/components/chip.css">
+  <link rel="stylesheet" href="assets/css/components/media.css">
+  <link rel="stylesheet" href="assets/css/components/marquee.css">
+  <link rel="stylesheet" href="assets/css/components/card-departemen.css">
+  <link rel="stylesheet" href="assets/css/components/card-mega.css">
+  <link rel="stylesheet" href="assets/css/components/card-news.css">
+  <link rel="stylesheet" href="assets/css/components/carousel.css">
+  <link rel="stylesheet" href="assets/css/components/decor.css">
+  <link rel="stylesheet" href="assets/css/components/section-head.css">
+  <link rel="stylesheet" href="assets/css/components/footer.css">
+  <link rel="stylesheet" href="assets/css/sections/hero.css">
+  <link rel="stylesheet" href="assets/css/sections/about.css">
+  <link rel="stylesheet" href="assets/css/sections/departemen.css">
+  <link rel="stylesheet" href="assets/css/sections/proker.css">
+  <link rel="stylesheet" href="assets/css/sections/berita.css">
+  <link rel="stylesheet" href="assets/css/utilities/animations.css">
+  <link rel="stylesheet" href="assets/css/utilities/helpers.css">
+
+  <!-- Entry point halaman. type="module" otomatis dijalankan setelah HTML selesai dibaca (defer) -->
+  <script type="module" src="assets/js/pages/home.js"></script>
+</head>
+<body>
+
+  <!-- Aksesibilitas: pengguna keyboard bisa langsung lompat ke konten -->
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a class="navbar__brand" href="index.html" aria-label="HIMASISTA — ke beranda">
+        <img class="navbar__logo" src="assets/images/brand/logo-himasista.png" alt="" width="52" height="52">
+        <span class="navbar__brand-text">
+          <span class="navbar__name">HIMASISTA</span>
+          <span class="navbar__campus">UNTAG SURABAYA</span>
+        </span>
+      </a>
+
+      <!-- Menu desktop (disembunyikan di HP lewat CSS) -->
+      <nav class="navbar__nav" aria-label="Navigasi utama">
+        <ul class="navbar__links">
+          <li><a class="navbar__link navbar__link--active" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="navbar__link" href="#tentang">Profil</a></li>
+          <li><a class="navbar__link" href="#departemen">Departemen</a></li>
+          <li><a class="navbar__link" href="#berita">Berita</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="#proker">Program Kerja</a>
+      </nav>
+
+      <!-- Tombol hamburger (hanya tampil di HP). aria-* diperbarui oleh mobile-menu.js -->
+      <button class="navbar__toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu" data-js="menu-toggle">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+
+    <!-- Panel menu HP. Atribut hidden dilepas oleh mobile-menu.js saat dibuka -->
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigasi utama (seluler)" hidden data-js="menu-panel">
+      <ul class="mobile-menu__list">
+        <li><a class="mobile-menu__link" href="index.html">Beranda</a></li>
+        <li><a class="mobile-menu__link" href="#tentang">Profil</a></li>
+        <li><a class="mobile-menu__link" href="#departemen">Departemen</a></li>
+        <li><a class="mobile-menu__link" href="#proker">Program Kerja</a></li>
+        <li><a class="mobile-menu__link" href="#berita">SISTEKINEWS</a></li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="#kontak">Hubungi Kami</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero section section--ice" id="beranda">
+      <!-- Tanda "+" blueprint di sudut (dekorasi) -->
+      <span class="plus plus--tl" aria-hidden="true"></span>
+      <span class="plus plus--tr" aria-hidden="true"></span>
+      <span class="plus plus--bl" aria-hidden="true"></span>
+      <span class="plus plus--br" aria-hidden="true"></span>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="chip chip--outline hero__period anim-fade-up">
+            <span class="dot dot--pulse" aria-hidden="true"></span>
+            Kabinet · Periode 2026/2027
+          </p>
+
+          <!-- Tiap huruf dibungkus span agar bisa dianimasikan satu per satu;
+               aria-label memastikan pembaca layar tetap membaca "ECLIPSE" utuh -->
+          <h1 class="hero__title" aria-label="ECLIPSE">
+            <span class="hero__char" aria-hidden="true" style="--i:0">E</span><span class="hero__char" aria-hidden="true" style="--i:1">C</span><span class="hero__char" aria-hidden="true" style="--i:2">L</span><span class="hero__char" aria-hidden="true" style="--i:3">I</span><span class="hero__char" aria-hidden="true" style="--i:4">P</span><span class="hero__char" aria-hidden="true" style="--i:5">S</span><span class="hero__char" aria-hidden="true" style="--i:6">E</span>
+          </h1>
+
+          <span class="accent-bar accent-bar--cyan anim-grow-x" aria-hidden="true"></span>
+          <p class="hero__tagline anim-fade-up">Encouraging Innovation, Leading Purpose, Shared Excellence</p>
+          <p class="hero__org anim-fade-up">Himpunan Mahasiswa Sistem Informasi<br>Universitas 17 Agustus 1945 Surabaya</p>
+
+          <div class="hero__actions anim-fade-up">
+            <a class="btn btn--primary btn--lg" href="#tentang">Explore <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--outline btn--lg" href="#departemen">Lihat Departemen</a>
+          </div>
+        </div>
+
+        <!-- Visual hero: 5 awan bergerak di belakang logo kabinet.
+             Posisi & animasi tiap awan diatur .cloud--1 s.d. .cloud--5 di hero.css -->
+        <div class="hero__visual" aria-hidden="true">
+         <span class="cloud cloud--1"><img src="assets/images/decor/cloud-1.png" alt="" width="288" height="115"></span>
+          <span class="cloud cloud--2"><img src="assets/images/decor/cloud-2.png" alt="" width="242" height="112"></span>
+          <span class="cloud cloud--3"><img src="assets/images/decor/cloud-3.png" alt="" width="217" height="110"></span>
+          <span class="cloud cloud--4"><img src="assets/images/decor/cloud-4.png" alt="" width="221" height="135"></span>
+          <span class="cloud cloud--5"><img src="assets/images/decor/cloud-5.png" alt="" width="340" height="106"></span>
+          <img class="hero__logo anim-float" src="assets/images/brand/logo-eclipse.png" alt="" width="420" height="382">
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARQUEE (pita teks berjalan) =================
+         Isi ditulis 2x agar animasi translateX(-50%) menyambung tanpa jeda -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">HIMASISTA</span>
+        <span class="marquee__item">Sistem Informasi</span>
+        <span class="marquee__item">Untag Surabaya</span>
+        <span class="marquee__item">Kabinet ECLIPSE</span>
+        <span class="marquee__item">2026/2027</span>
+        <span class="marquee__item">HIMASISTA</span>
+        <span class="marquee__item">Sistem Informasi</span>
+        <span class="marquee__item">Untag Surabaya</span>
+        <span class="marquee__item">Kabinet ECLIPSE</span>
+        <span class="marquee__item">2026/2027</span>
+      </div>
+    </div>
+
+    <!-- ================= PROFIL & TUJUAN ================= -->
+    <section class="about section section--white" id="tentang">
+      <span class="plus plus--tl" aria-hidden="true"></span>
+      <span class="plus plus--br" aria-hidden="true"></span>
+      <!-- Watermark logo gabungan (dekorasi, posisi diatur about.css) -->
+      <img class="about__watermark" src="assets/images/brand/logo-gabungan.png" alt="" aria-hidden="true" width="700" height="548" loading="lazy">
+
+      <div class="container container--narrow about__inner">
+        <article class="about__block reveal">
+          <h2 class="about__title">Apa itu HIMASISTA?</h2>
+          <p class="about__text">Himpunan Mahasiswa Sistem Informasi (HIMASISTA) adalah organisasi kemahasiswaan yang mewadahi mahasiswa Program Studi Sistem Informasi Universitas 17 Agustus 1945 Surabaya. Kami menjadi ruang belajar, berkarya, dan bertumbuh bersama, sekaligus jembatan antara mahasiswa dengan dunia industri melalui kegiatan akademik, riset, dan pengabdian masyarakat.</p>
+          <span class="accent-bar accent-bar--split" aria-hidden="true"></span>
+        </article>
+
+        <article class="about__block reveal">
+          <h2 class="about__title">Tujuan HIMASISTA</h2>
+          <p class="about__text">Mewadahi aspirasi mahasiswa Sistem Informasi, mengembangkan kompetensi akademik dan non-akademik anggota, serta membangun jejaring yang bermanfaat dengan kampus, alumni, dan industri.</p>
+          <span class="accent-bar accent-bar--split" aria-hidden="true"></span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= DEPARTEMEN ================= -->
+    <section class="departemen section section--ice" id="departemen">
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <h2 class="section-head__title">Departemen HIMASISTA</h2>
+          <span class="accent-bar accent-bar--navy accent-bar--wide" aria-hidden="true"></span>
+        </header>
+
+        <!-- Kartu departemen dirender dari data/departemen.js oleh render/departemen-card.js -->
+        <ul class="departemen__grid" data-js="departemen-list"></ul>
+      </div>
+    </section>
+
+    <!-- ================= PROGRAM KERJA (band navy) ================= -->
+    <section class="proker section section--navy" id="proker">
+      <span class="plus plus--tl plus--light" aria-hidden="true"></span>
+      <span class="plus plus--tr plus--light" aria-hidden="true"></span>
+
+      <div class="container">
+        <header class="section-head section-head--center section-head--on-dark reveal">
+          <p class="section-head__kicker">Kabinet ECLIPSE · 2026/2027</p>
+          <h2 class="section-head__title section-head__title--xl">Program Kerja</h2>
+          <span class="accent-bar accent-bar--cyan accent-bar--mid" aria-hidden="true"></span>
+          <p class="section-head__desc">Rangkaian program yang dijalankan setiap departemen HIMASISTA selama satu periode kepengurusan.</p>
+        </header>
+
+        <!-- 2 kartu megaproker dirender dari data/proker.js (item dengan isMega: true) -->
+        <div class="proker__mega" data-js="mega-list"></div>
+      </div>
+    </section>
+
+    <!-- ================= SISTEKINEWS ================= -->
+    <section class="berita section section--white" id="berita">
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <p class="section-head__kicker">Kabar HIMASISTA</p>
+          <h2 class="section-head__title section-head__title--xl">SISTEKINEWS</h2>
+          <span class="accent-bar accent-bar--navy" aria-hidden="true"></span>
+          <p class="section-head__desc">Kabar terbaru seputar kegiatan, prestasi, dan kolaborasi HIMASISTA Untag Surabaya.</p>
+        </header>
+      </div>
+
+      <!-- Carousel berita utama. Slide & titik indikator dibuat oleh carousel.js dari data/berita.js (isFeatured: true) -->
+      <div class="carousel reveal" data-js="carousel" aria-roledescription="carousel" aria-label="Berita utama">
+        <div class="carousel__viewport">
+          <ul class="carousel__track" data-js="carousel-track"></ul>
+        </div>
+
+        <div class="carousel__controls">
+          <button class="carousel__btn" type="button" aria-label="Berita sebelumnya" data-js="carousel-prev">‹</button>
+          <div class="carousel__dots" data-js="carousel-dots"></div>
+          <button class="carousel__btn carousel__btn--primary" type="button" aria-label="Berita berikutnya" data-js="carousel-next">›</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER (ditulis sama di ke-4 halaman) ================= -->
+  <footer class="footer" id="kontak">
+    <div class="footer__card">
+      <div class="footer__top">
+        <div class="footer__identity">
+          <span class="footer__logo-box">
+            <img src="assets/images/brand/logo-himasista.png" alt="Logo HIMASISTA" width="60" height="60" loading="lazy">
+          </span>
+          <div>
+            <p class="footer__name">HIMASISTA</p>
+            <address class="footer__address">
+              Sekretariat HIMASISTA, Gedung Fakultas Teknik Lt. 2<br>
+              Universitas 17 Agustus 1945 Surabaya<br>
+              Jl. Semolowaru No. 45, Surabaya
+            </address>
+          </div>
+        </div>
+
+        <dl class="footer__contact">
+          <dt>Email</dt>
+          <dd><a href="mailto:sekretariat@himasista.id">sekretariat@himasista.id</a></dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+6281200001111">+62 812-0000-1111 (Rani)</a></dd>
+          <dd><a href="tel:+6285700002222">+62 857-0000-2222 (Dimas)</a></dd>
+        </dl>
+      </div>
+
+      <hr class="footer__divider">
+
+      <div class="footer__bottom">
+        <ul class="footer__socials">
+          <li><a class="footer__social" href="#" aria-label="Instagram HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8"></circle></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="LinkedIn HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"></path></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="YouTube HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3V9z"></path></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="TikTok HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5"></path><path d="M14 3c.5 2.5 2.3 4.2 5 4.5"></path></svg></a></li>
+        </ul>
+        <p class="footer__copy">© 2026 HIMASISTA Untag Surabaya. All rights reserved.</p>
+      </div>
+
+      <!-- Wordmark outline raksasa (dekorasi) -->
+      <p class="footer__wordmark" aria-hidden="true">HIMASISTA</p>
+    </div>
+  </footer>
+
+</body>
+</html> 

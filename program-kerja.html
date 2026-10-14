@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Program Kerja — HIMASISTA Untag Surabaya</title>
+  <meta name="description" content="Program kerja HIMASISTA Untag Surabaya periode Kabinet ECLIPSE 2026/2027.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Program Kerja — HIMASISTA Untag Surabaya">
+  <meta property="og:image" content="assets/images/meta/og-image.jpg">
+  <link rel="icon" type="image/png" href="assets/images/meta/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="assets/css/base/tokens.css">
+  <link rel="stylesheet" href="assets/css/base/reset.css">
+  <link rel="stylesheet" href="assets/css/base/typography.css">
+  <link rel="stylesheet" href="assets/css/layout/container.css">
+  <link rel="stylesheet" href="assets/css/layout/section.css">
+  <link rel="stylesheet" href="assets/css/components/navbar.css">
+  <link rel="stylesheet" href="assets/css/components/mobile-menu.css">
+  <link rel="stylesheet" href="assets/css/components/button.css">
+  <link rel="stylesheet" href="assets/css/components/chip.css">
+  <link rel="stylesheet" href="assets/css/components/media.css">
+  <link rel="stylesheet" href="assets/css/components/card-proker.css">
+  <link rel="stylesheet" href="assets/css/components/timeline.css">
+  <link rel="stylesheet" href="assets/css/components/decor.css">
+  <link rel="stylesheet" href="assets/css/components/section-head.css">
+  <link rel="stylesheet" href="assets/css/components/footer.css">
+  <link rel="stylesheet" href="assets/css/pages/proker-detail.css">
+  <link rel="stylesheet" href="assets/css/utilities/animations.css">
+  <link rel="stylesheet" href="assets/css/utilities/helpers.css">
+
+  <!-- Entry point halaman: baca ?id=, isi konten dari data/proker.js, pasang filter daftar lainnya -->
+  <script type="module" src="assets/js/pages/program-kerja.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a class="navbar__brand" href="index.html" aria-label="HIMASISTA — ke beranda">
+        <img class="navbar__logo" src="assets/images/brand/logo-himasista.png" alt="" width="52" height="52">
+        <span class="navbar__brand-text">
+          <span class="navbar__name">HIMASISTA</span>
+          <span class="navbar__campus">UNTAG SURABAYA</span>
+        </span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navigasi utama">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="index.html">Home</a></li>
+          <li><a class="navbar__link" href="index.html#tentang">Profil</a></li>
+          <li><a class="navbar__link" href="index.html#departemen">Departemen</a></li>
+          <li><a class="navbar__link" href="index.html#berita">Berita</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="index.html#proker" aria-current="page">Program Kerja</a>
+      </nav>
+
+      <button class="navbar__toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu" data-js="menu-toggle">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigasi utama (seluler)" hidden data-js="menu-panel">
+      <ul class="mobile-menu__list">
+        <li><a class="mobile-menu__link" href="index.html">Beranda</a></li>
+        <li><a class="mobile-menu__link" href="index.html#tentang">Profil</a></li>
+        <li><a class="mobile-menu__link" href="index.html#departemen">Departemen</a></li>
+        <li><a class="mobile-menu__link" href="index.html#proker">Program Kerja</a></li>
+        <li><a class="mobile-menu__link" href="index.html#berita">SISTEKINEWS</a></li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="#kontak">Hubungi Kami</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HEADER PROKER (band navy) =================
+         Diisi program-kerja.js dari data/proker.js berdasarkan ?id= -->
+    <section class="proker-hero section section--navy" data-js="proker-content">
+      <span class="plus plus--tl plus--light" aria-hidden="true"></span>
+      <span class="plus plus--tr plus--light" aria-hidden="true"></span>
+
+      <div class="container">
+        <a class="btn btn--ghost-light btn--sm back-link" href="index.html#proker"><span aria-hidden="true">←</span> Program kerja</a>
+
+        <div class="proker-hero__grid">
+          <div class="proker-hero__body anim-fade-up">
+            <div class="chip-row">
+              <span class="chip chip--on-dark" data-js="proker-dep"></span>
+              <!-- Class status (chip--rencana / --berjalan / --selesai) dipasang JS sesuai data -->
+              <span class="chip" data-js="proker-status"></span>
+            </div>
+            <h1 class="proker-hero__title" data-js="proker-name">Memuat…</h1>
+            <span class="accent-bar accent-bar--split-light anim-grow-x" aria-hidden="true"></span>
+            <p class="proker-hero__summary" data-js="proker-summary"></p>
+          </div>
+
+          <!-- Kartu info putih di atas navy -->
+          <aside class="info-card anim-fade-up" aria-label="Informasi pelaksanaan">
+                       <ul class="info-card__list">
+              <li class="info-card__item">
+                <span class="info-card__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></span>
+                <span class="info-card__text"><span class="info-card__label">Tanggal pelaksanaan</span><strong class="info-card__value" data-js="proker-date"></strong></span>
+              </li>
+              <li class="info-card__item">
+                <span class="info-card__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span>
+                <span class="info-card__text"><span class="info-card__label">Lokasi</span><strong class="info-card__value" data-js="proker-location"></strong></span>
+              </li>
+              <li class="info-card__item">
+                <span class="info-card__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"></path></svg></span>
+                <span class="info-card__text"><span class="info-card__label">Penanggung jawab</span><strong class="info-card__value" data-js="proker-pic"></strong></span>
+              </li>
+              <li class="info-card__item">
+                <span class="info-card__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c.8-3.2 3.2-5 6-5s5.2 1.8 6 5"></path><path d="M16 5a3 3 0 010 6"></path><path d="M18 15c1.6.6 2.7 2.2 3 5"></path></svg></span>
+                <span class="info-card__text"><span class="info-card__label">Sasaran peserta</span><strong class="info-card__value" data-js="proker-target"></strong></span>
+              </li>
+            </ul>
+            <a class="btn btn--primary btn--block" href="#" data-js="proker-register">Daftar Sekarang <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--outline btn--block" href="#kontak">Hubungi Narahubung</a>
+          </aside>
+        </div>
+
+        <!-- Poster utama. src diisi JS: assets/images/proker/<id>.webp -->
+        <figure class="media media--21x9 media--kenburns anim-fade-up">
+          <img data-js="proker-cover" src="" alt="" width="1248" height="520">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= TUJUAN, TENTANG, RANGKAIAN ================= -->
+    <section class="proker-info section section--white">
+      <div class="container proker-info__grid">
+        <div class="reveal">
+          <h2 class="proker-info__title">Tujuan</h2>
+          <ul class="check-list" data-js="proker-goals"></ul>
+
+          <h2 class="proker-info__title">Tentang Program</h2>
+          <p class="proker-info__text" data-js="proker-about"></p>
+        </div>
+
+        <div class="reveal">
+          <h2 class="proker-info__title">Rangkaian Kegiatan</h2>
+          <!-- Tahap dengan status done / current / upcoming, dirender render/timeline.js -->
+          <ol class="timeline" data-js="proker-timeline"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DOKUMENTASI =================
+         Galeri 1 besar + 3 kecil; src diisi JS: assets/images/proker/<id>-doc-1.webp dst. -->
+    <section class="gallery section section--ice">
+      <div class="container">
+        <h2 class="proker-info__title reveal">Dokumentasi</h2>
+        <div class="gallery__grid reveal" data-js="proker-gallery"></div>
+      </div>
+    </section>
+
+    <!-- ================= PROGRAM KERJA LAINNYA (list lengkap + filter) ================= -->
+    <section class="proker-list section section--white">
+      <div class="container">
+        <div class="proker-list__head">
+          <h2 class="proker-info__title">Program Kerja Lainnya</h2>
+          <!-- Filter status: tombol dibuat render/filter.js -->
+          <div class="segmented" role="group" aria-label="Filter status" data-js="filter-status"></div>
+        </div>
+
+        <!-- Filter departemen: chip dibuat render/filter.js (bisa digeser ke samping di HP, lihat .hscroll) -->
+        <div class="chip-scroll" role="group" aria-label="Filter departemen" data-js="filter-dep"></div>
+
+        <!-- aria-live: pembaca layar mengumumkan jumlah hasil setiap filter berubah -->
+        <p class="proker-list__count" aria-live="polite" data-js="proker-count"></p>
+        <ul class="proker-list__grid" data-js="proker-list"></ul>
+        <p class="empty-state" hidden data-js="proker-empty">Belum ada program kerja untuk filter ini.</p>
+      </div>
+    </section>
+
+    <!-- Fallback jika ?id= tidak valid -->
+    <section class="not-found section section--ice" hidden data-js="not-found">
+      <div class="container container--narrow">
+        <h1 class="not-found__title">Program kerja tidak ditemukan</h1>
+        <p>Tautan yang kamu buka mungkin salah atau sudah tidak berlaku.</p>
+        <a class="btn btn--primary" href="index.html#proker">Kembali ke Program Kerja</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER (identik di ke-4 halaman) ================= -->
+  <footer class="footer" id="kontak">
+    <div class="footer__card">
+      <div class="footer__top">
+        <div class="footer__identity">
+          <span class="footer__logo-box">
+            <img src="assets/images/brand/logo-himasista.png" alt="Logo HIMASISTA" width="60" height="60" loading="lazy">
+          </span>
+          <div>
+            <p class="footer__name">HIMASISTA</p>
+            <address class="footer__address">
+              Sekretariat HIMASISTA, Gedung Fakultas Teknik Lt. 2<br>
+              Universitas 17 Agustus 1945 Surabaya<br>
+              Jl. Semolowaru No. 45, Surabaya
+            </address>
+          </div>
+        </div>
+
+        <dl class="footer__contact">
+          <dt>Email</dt>
+          <dd><a href="mailto:sekretariat@himasista.id">sekretariat@himasista.id</a></dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+6281200001111">+62 812-0000-1111 (Rani)</a></dd>
+          <dd><a href="tel:+6285700002222">+62 857-0000-2222 (Dimas)</a></dd>
+        </dl>
+      </div>
+
+      <hr class="footer__divider">
+
+      <div class="footer__bottom">
+        <ul class="footer__socials">
+        <ul class="footer__socials">
+          <li><a class="footer__social" href="#" aria-label="Instagram HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8"></circle></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="LinkedIn HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"></path></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="YouTube HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3V9z"></path></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="TikTok HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5"></path><path d="M14 3c.5 2.5 2.3 4.2 5 4.5"></path></svg></a></li>
+        </ul>
+        <p class="footer__copy">© 2026 HIMASISTA Untag Surabaya. All rights reserved.</p>
+      </div>
+
+      <p class="footer__wordmark" aria-hidden="true">HIMASISTA</p>
+    </div>
+  </footer>
+
+</body>
+</html>
