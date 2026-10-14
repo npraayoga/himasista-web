@@ -1,0 +1,114 @@
+/* ==========================================================================
+   CAROUSEL
+   Carousel berita utama di beranda. Pergeseran slide pakai native CSS
+   scroll-snap (bukan hitung transform manual) — JS cuma menggeser scroll
+   horizontal .carousel__viewport ke kartu yang dituju, otomatis benar di
+   lebar layar berapa pun, dan tetap bisa digeser manual (swipe) di HP.
+   ========================================================================== */
+
+.carousel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.carousel__viewport {
+  width: 100%;
+  max-width: 90rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+}
+.carousel__viewport::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.carousel__track {
+  display: flex;
+  gap: 1.5rem;
+  /* Padding kiri-kanan supaya kartu pertama/terakhir bisa sampai ke
+     tengah viewport saat di-snap, bukan mentok di tepi. */
+  padding-inline: calc(50% - min(45vw, 34.375rem));
+}
+
+/* --- Satu slide carousel: kartu putih besar, foto + teks berdampingan --- */
+.carousel__card {
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  width: min(90vw, 68.75rem);
+  box-sizing: border-box;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 24px 60px rgba(11, 31, 75, 0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  opacity: 0.4;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease, transform 0.6s var(--ease-out);
+}
+.carousel__card.is-active { opacity: 1; transform: scale(1); }
+
+.carousel__card-body { display: flex; flex-direction: column; gap: 1rem; }
+.carousel__card-title { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; font-weight: 700; }
+.carousel__card-date { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-small); color: var(--color-ink-muted); }
+.carousel__card-excerpt { font-size: 1.0625rem; line-height: 1.7; color: var(--color-ink-soft); }
+.carousel__card-media { height: 14rem; }
+
+/* --- Kontrol prev/next + dot indikator --- */
+.carousel__controls { display: flex; align-items: center; gap: 1.25rem; }
+.carousel__btn {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+.carousel__btn:hover { transform: translateY(-2px); }
+.carousel__btn--primary {
+  border: 0;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+}
+.carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 3.25rem;
+  padding: 0 1.125rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  transition: width 0.4s ease, background-color 0.4s ease;
+}
+.carousel__dot.is-active {
+  width: 2rem;
+  background: var(--color-ink);
+}
+
+@media (min-width: 900px) {
+  .carousel__card {
+    width: 68.75rem;
+    padding: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+  .carousel__card-title { font-size: 2.125rem; }
+  .carousel__card-media { height: 100%; min-height: 24.75rem; }
+}

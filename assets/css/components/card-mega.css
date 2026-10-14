@@ -1,0 +1,115 @@
+/* ==========================================================================
+   CARD MEGA
+   2 kartu besar "Megaproker" di beranda. 2 varian warna berselang-seling
+   (navy gelap & biru aksen) — kelas varian dipasang JS dari data/proker.js
+   berdasarkan urutan (genap/ganjil).
+   ========================================================================== */
+
+.card-mega {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 27.5rem;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  color: var(--color-on-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+}
+.card-mega:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(11, 31, 75, 0.12);
+}
+
+.card-mega--navy { background: #16306A; border: 1px solid rgba(255, 255, 255, 0.1); }
+.card-mega--accent { background: var(--color-accent); }
+
+/* Watermark logo besar transparan di pojok, membesar pelan saat kartu di-hover */
+.card-mega__watermark {
+  position: absolute;
+  right: -2.5rem;
+  top: -2rem;
+  width: 21rem;
+  opacity: 0.16;
+  transition: transform 1.4s var(--ease-out);
+  pointer-events: none;
+}
+.card-mega:hover .card-mega__watermark {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* Tombol panah di pojok kiri atas, berputar 45° saat hover jadi terkesan "buka" */
+.card-mega__go {
+  position: relative;
+  align-self: flex-start;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--color-on-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s var(--ease-out), background-color 0.3s ease;
+}
+.card-mega:hover .card-mega__go {
+  transform: rotate(-45deg);
+  background: var(--color-cyan);
+}
+
+.card-mega__badge {
+  position: relative;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2rem;
+  padding: 0 0.875rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+.card-mega--navy .card-mega__badge { background: var(--color-cyan); color: var(--color-ink); }
+.card-mega--accent .card-mega__badge { background: var(--color-surface); color: var(--color-ink); }
+
+.card-mega__title {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.card-mega__desc {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 30rem;
+}
+.card-mega--navy .card-mega__desc { color: #C9D4EA; }
+.card-mega--accent .card-mega__desc { color: rgba(255, 255, 255, 0.86); }
+
+.card-mega__meta {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: var(--fs-small);
+}
+.card-mega--navy .card-mega__meta { color: #C9D4EA; }
+.card-mega--accent .card-mega__meta { color: rgba(255, 255, 255, 0.86); }
+.card-mega__meta-item { display: inline-flex; align-items: center; gap: 8px; }
+
+.proker__mega {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 900px) {
+  .card-mega { min-height: 27.5rem; padding: 2.5rem; }
+  .card-mega__title { font-size: 2.5rem; }
+  .proker__mega { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem; }
+}

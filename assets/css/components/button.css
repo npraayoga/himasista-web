@@ -1,0 +1,92 @@
+/* ==========================================================================
+   BUTTON
+   Satu class dasar .btn + modifier warna (--primary/--outline/--ghost/...)
+   dan modifier ukuran (--sm/--lg). Tanpa modifier ukuran = ukuran standar (52px).
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  height: 3.25rem; /* 52px, ukuran standar */
+  padding: 0 1.625rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-button);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease, transform 0.25s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn__arrow { transition: transform 0.3s var(--ease-out); }
+.btn:hover .btn__arrow { transform: translateX(4px); }
+
+/* --- Ukuran --- */
+.btn--sm { height: 3rem; padding: 0 1.5rem; font-size: var(--fs-nav-link); }
+.btn--lg { height: 3.5rem; padding: 0 1.875rem; }
+.btn--block { width: 100%; }
+
+/* --- Warna --- */
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+}
+.btn--primary:hover { background: var(--color-accent-hover); }
+
+.btn--outline {
+  background: transparent;
+  border: 1.5px solid var(--color-ink);
+  color: var(--color-ink);
+}
+.btn--outline:hover { background: var(--color-ink); color: var(--color-on-dark); }
+
+/* Putih dengan border tipis — dipakai di atas background terang (back-link, dsb.) */
+.btn--ghost {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-ink);
+  height: 2.75rem;
+  padding: 0 1.125rem 0 0.75rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+/* Versi transparan di atas background navy (back-link di header Detail Proker) */
+.btn--ghost-light {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--color-on-dark);
+  height: 2.75rem;
+  padding: 0 1.125rem 0 0.75rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+/* Putih polos tanpa border — dipakai di atas kartu navy (kartu "Sekilas") */
+.btn--light {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+.btn--light:hover { background: var(--color-ice); }
+
+/* --- Tombol bulat berisi ikon saja (bagikan, salin tautan) --- */
+.icon-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.icon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+/* Tombol "kembali" di atas halaman detail. Parent-nya flex column, jadi
+   tanpa align-self tombol ini akan melebar selebar container. */
+.back-link { align-self: flex-start; }

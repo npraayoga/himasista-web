@@ -1,0 +1,65 @@
+/* ==========================================================================
+   CARD STAFF
+   Kartu foto staff di halaman Detail Departemen. Grid 2 kolom di HP,
+   3 kolom "zig-zag" di desktop — kolom tengah rata atas, kolom kiri & kanan
+   digeser turun, meniru layout staggered di desain asli.
+
+   CATATAN: di desain asli, pergeserannya dibuat manual per-kartu (bukan
+   berdasarkan urutan kolom) sehingga tidak bisa ditiru 100% dengan grid CSS
+   biasa untuk jumlah staff yang bisa berubah-ubah. Versi di sini menggeser
+   berdasarkan POSISI KOLOM (kolom 1 & 3 turun, kolom 2 tetap) — hasilnya
+   tetap zig-zag dan otomatis benar untuk jumlah staff berapa pun.
+   ========================================================================== */
+
+.staff__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.card-staff {
+  box-sizing: border-box;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease;
+}
+.card-staff:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+.card-staff__media { height: 12rem; }
+.card-staff__body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.card-staff__role { font-size: 1.0625rem; font-weight: 700; color: var(--color-ink); }
+.card-staff__name { font-size: var(--fs-small); color: var(--color-ink-muted); }
+
+@media (min-width: 900px) {
+  .staff__grid {
+    max-width: 65rem;
+    margin-inline: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+  .card-staff__media { height: 18.75rem; }
+  /* Kolom 1 & 3 (posisi ke-1,2 dan ke-3,4 dst. dalam kelipatan 3) digeser turun */
+  .staff__grid > li:nth-child(6n+1),
+  .staff__grid > li:nth-child(6n+2),
+  .staff__grid > li:nth-child(6n+3n+3),
+  .staff__grid > li:nth-child(6n+3n+4) { margin-top: 3.5rem; }
+  /* Aturan di atas ditulis eksplisit lagi di bawah dengan selektor yang lebih
+     sederhana & pasti benar untuk kolom 1 & 3 pada grid 3 kolom manapun: */
+  .staff__grid > li:nth-child(3n+1),
+  .staff__grid > li:nth-child(3n+3) { margin-top: 3.5rem; }
+  .staff__grid > li:nth-child(3n+2) { margin-top: 0; }
+}
