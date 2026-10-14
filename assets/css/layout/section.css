@@ -1,0 +1,37 @@
+/* ==========================================================================
+   SECTION
+   Jarak vertikal + 3 varian warna latar yang membentuk ritme
+   terang-gelap-terang ala "ECLIPSE" (eclipse = cahaya bertemu gelap).
+   Section TIDAK mengatur lebar konten — itu tugas .container di dalamnya.
+   ========================================================================== */
+
+.section {
+  position: relative; /* acuan posisi untuk dekorasi .plus di dalamnya */
+  padding-block: clamp(3.5rem, 3rem + 3vw, 7rem); /* ±56px di HP → 112px di desktop */
+}
+
+/* Terang: memperlihatkan pola grid biru dari body (tidak perlu background sendiri,
+   tapi didefinisikan ulang di sini supaya section ini tetap benar dipakai
+   di konteks apa pun, tidak bergantung urutan section lain) */
+.section--ice {
+  background-color: var(--color-ice);
+  background-image: var(--pattern-grid);
+  background-size: var(--pattern-grid-size) var(--pattern-grid-size);
+}
+
+/* Putih polos, dibatasi garis tipis atas-bawah supaya terpisah jelas
+   dari section "ice" di sekitarnya */
+.section--white {
+  background-color: var(--color-surface);
+  border-block: 1px solid var(--color-border);
+}
+
+/* Gelap (navy) — dipakai untuk band "Program Kerja" di beranda dan
+   header halaman Detail Program Kerja. Semua teks di dalamnya otomatis putih. */
+.section--navy {
+  background-color: var(--color-ink);
+  color: var(--color-on-dark);
+}
+.section--navy p {
+  color: var(--color-on-dark-muted);
+}
