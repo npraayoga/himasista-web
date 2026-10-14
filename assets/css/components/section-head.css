@@ -1,0 +1,58 @@
+/* ==========================================================================
+   SECTION HEAD
+   Pola judul yang berulang: label kecil (kicker) + judul + accent-bar +
+   deskripsi singkat. Dipakai di section Departemen/Proker/Berita di beranda,
+   dan section "Staff"/"Program Kerja Lainnya"/"Berita Lainnya" di halaman detail.
+   ========================================================================== */
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.section-head--center {
+  align-items: center;
+  text-align: center;
+}
+
+.section-head__kicker {
+  margin: 0;
+  font-size: var(--fs-kicker);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-cyan-light);
+}
+/* Di atas background terang, kicker cyan-terang kurang kontras — dipakai
+   warna accent biru sebagai gantinya lewat modifier ini bila diperlukan. */
+.section-head:not(.section-head--on-dark) .section-head__kicker {
+  color: var(--color-accent);
+}
+
+.section-head__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2-sm);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.section-head--on-dark .section-head__title {
+  color: var(--color-on-dark); /* h2 default navy (typography.css) → tak terlihat di band navy */
+}
+.section-head__title--xl {
+  font-size: var(--fs-h2-xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.section-head__desc {
+  margin: 0;
+  max-width: 42.5rem;
+  font-size: var(--fs-body-lg);
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+.section-head--on-dark .section-head__desc {
+  color: var(--color-on-dark-muted);
+}

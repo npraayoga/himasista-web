@@ -1,0 +1,82 @@
+/* ==========================================================================
+   DECOR
+   Elemen dekoratif kecil yang dipakai berulang lintas section: garis aksen
+   (accent-bar), tanda "+" ala blueprint di sudut section, dan dot berkedip.
+   ========================================================================== */
+
+/* Garis aksen pendek di bawah judul */
+.accent-bar {
+  display: block;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  transform-origin: left center;
+}
+.accent-bar--navy   { width: 12.5rem; background: var(--color-ink); }
+.accent-bar--cyan   { width: 7.5rem;  background: var(--color-cyan); }
+/* Pengganti lebar bawaan — di desain tiap judul punya panjang garis sendiri */
+.accent-bar--short { width: 10rem; }   /* 160px: judul "Staff" */
+.accent-bar--mid   { width: 12.5rem; } /* 200px: judul "Program Kerja" */
+.accent-bar--wide  { width: 17.5rem; } /* 280px: judul "Departemen HIMASISTA" */
+
+/* Dua warna berdampingan (navy + cyan), dipakai di section Profil/Tujuan */
+.accent-bar--split {
+  display: flex;
+  width: 22.5rem;
+  overflow: hidden;
+  background: none;
+}
+.accent-bar--split::before,
+.accent-bar--split::after {
+  content: "";
+  display: block;
+  height: 0.5rem;
+}
+.accent-bar--split::before { flex-grow: 3; background: var(--color-ink); }
+.accent-bar--split::after  { flex-grow: 1; background: var(--color-cyan); }
+
+/* Versi di atas background navy (dipakai di header Detail Program Kerja) */
+.accent-bar--split-light {
+  display: flex;
+  width: 12.5rem;
+  overflow: hidden;
+  background: none;
+}
+.accent-bar--split-light::before,
+.accent-bar--split-light::after {
+  content: "";
+  display: block;
+  height: 0.5rem;
+}
+.accent-bar--split-light::before { flex-grow: 3; background: var(--color-on-dark); }
+.accent-bar--split-light::after  { flex-grow: 1; background: var(--color-cyan); }
+
+/* Tanda "+" di sudut section, nuansa cetak biru arsitek (blueprint) */
+.plus {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  pointer-events: none;
+}
+.plus::before, .plus::after {
+  content: "";
+  position: absolute;
+  background: #9FB3D1;
+}
+.plus::before { left: 7px; top: 0; width: 1.5px; height: 15px; }
+.plus::after  { top: 7px; left: 0; height: 1.5px; width: 15px; }
+.plus--light::before, .plus--light::after {
+  background: rgba(255, 255, 255, 0.28);
+}
+.plus--tl { left: var(--space-6); top: var(--space-5); }
+.plus--tr { right: var(--space-6); top: var(--space-5); }
+.plus--bl { left: var(--space-6); bottom: var(--space-6); }
+.plus--br { right: var(--space-6); bottom: var(--space-6); }
+
+/* Dot kecil di chip "Kabinet · Periode 2026/2027" */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-cyan);
+  flex-shrink: 0;
+}
