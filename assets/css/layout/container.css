@@ -1,0 +1,19 @@
+/* ==========================================================================
+   CONTAINER
+   Pembatas lebar konten + jarak aman ke tepi layar (gutter). Dipakai di
+   dalam setiap .section untuk membatasi lebar isi tanpa membatasi lebar
+   background section itu sendiri.
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: 78rem; /* 1248px: lebar konten di desain desktop (1440px - 2×96px) */
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 6rem); /* gutter cair: 20px di HP → 96px di desktop */
+}
+
+/* Untuk blok teks panjang (mis. Profil/Tujuan) supaya baris tidak
+   terlalu lebar dan tetap nyaman dibaca */
+.container--narrow {
+  max-width: 56.25rem; /* 900px, sesuai lebar blok teks "Tentang" di desain */
+}

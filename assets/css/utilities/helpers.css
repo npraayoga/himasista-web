@@ -1,0 +1,32 @@
+/* ==========================================================================
+   HELPERS
+   Utility class generik, kecil, dan lintas konteks. Kalau sebuah class
+   cuma dipakai satu komponen, taruh di file komponen itu — bukan di sini.
+   ========================================================================== */
+
+/* Sembunyikan visual tapi tetap terbaca screen reader (label aria-live,
+   teks bantu). Dipakai kalau nanti butuh label tanpa tampil di layar. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Baris horizontal yang bisa digeser (scroll ke samping) tanpa
+   menampilkan scrollbar bawaan browser — dipakai untuk daftar chip filter
+   di halaman Detail Program Kerja & Detail Berita ketika ruang sempit di HP. */
+.chip-scroll {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+.chip-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+} 
