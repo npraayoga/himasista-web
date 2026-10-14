@@ -1,0 +1,41 @@
+/* ==========================================================================
+   MOBILE MENU
+   Panel dropdown yang muncul di bawah navbar saat tombol hamburger ditekan
+   (di HP/tablet sempit). Disembunyikan total di desktop.
+   ========================================================================== */
+
+.mobile-menu {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 4.75rem;
+  z-index: 30;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card-hover-lg);
+  display: flex;
+  flex-direction: column;
+  animation: fadeUp 0.35s var(--ease-out) both;
+}
+/* Atribut [hidden] bawaan HTML sudah cukup untuk sembunyikan total;
+   tidak perlu display:none manual di sini. */
+
+.mobile-menu__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.25rem;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid var(--color-border-soft);
+  color: var(--color-ink);
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+.mobile-menu__list li:last-child .mobile-menu__link { border-bottom: none; }
+
+@media (min-width: 900px) {
+  .mobile-menu { display: none !important; }
+}

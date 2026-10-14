@@ -1,0 +1,54 @@
+/* ==========================================================================
+   CARD NEWS
+   Kartu berita di grid "Berita Lainnya" (beranda TIDAK memakai kartu ini —
+   beranda pakai carousel, lihat carousel.css).
+   ========================================================================== */
+
+.card-news {
+  box-sizing: border-box;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+}
+.card-news:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+.card-news__media { height: 13.75rem; }
+.card-news__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.card-news__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-news__date { font-size: var(--fs-small); color: var(--color-ink-muted); }
+.card-news__title { font-size: 1.25rem; font-weight: 700; line-height: 1.35; }
+.card-news__excerpt { font-size: var(--fs-small); line-height: 1.6; color: var(--color-ink-muted); }
+.card-news__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.news-list__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 900px) {
+  .news-list__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; }
+}
