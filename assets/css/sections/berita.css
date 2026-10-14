@@ -1,0 +1,15 @@
+/* ==========================================================================
+   SISTEKINEWS (beranda)
+   Header section + carousel (carousel-nya sendiri di carousel.css).
+   ========================================================================== */
+
+.berita {
+  padding-block: 4rem 2.5rem; /* padding-block cuma menerima 2 nilai (atas bawah) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+@media (min-width: 900px) {
+  .berita { padding-block: 7rem 3.5rem; gap: 4rem; }
+}

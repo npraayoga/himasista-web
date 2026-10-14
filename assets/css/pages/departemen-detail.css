@@ -1,0 +1,94 @@
+/* ==========================================================================
+   PAGE: DETAIL DEPARTEMEN
+   Header (ikon + info departemen) dan spacing khusus section Staff.
+   ========================================================================== */
+
+.dept-hero {
+  padding-block: 3rem 3.5rem;
+}
+/* Tombol kembali & grid ada di dalam .container → jarak diatur di sini */
+.dept-hero > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.dept-hero__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+.dept-hero__icon-box {
+  position: relative;
+  width: 13.125rem;
+  height: 13.125rem;
+  border-radius: 2.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.dept-hero__icon {
+  width: 8.75rem;
+  height: 8.75rem;
+  border-radius: var(--radius-full);
+  background: var(--color-chip-bg);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dept-hero__icon svg { width: 60%; height: 60%; }
+
+.dept-hero__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+.dept-hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.dept-hero__desc {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+  max-width: 45rem;
+}
+
+.staff {
+  padding-block: 4rem;
+}
+/* Header "Staff" & grid ada di dalam .container → jarak diatur di sini */
+.staff > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .dept-hero { padding-block: 3rem 7rem; }
+  .dept-hero > .container { gap: 3rem; } /* 48px, sesuai desain */
+  .staff > .container { gap: 3.5rem; } /* 56px, sesuai desain */
+  .dept-hero__grid {
+    flex-direction: row;
+    align-items: center;
+    gap: 4.5rem;
+    text-align: left;
+  }
+  .dept-hero__icon-box { width: 26.25rem; height: 26.25rem; border-radius: 2.5rem; flex-shrink: 0; }
+  .dept-hero__icon { width: 17.5rem; height: 17.5rem; }
+  .dept-hero__body { align-items: flex-start; text-align: left; }
+  .dept-hero__desc { font-size: 1.1875rem; }
+  .staff { padding-block: 6.5rem 7.5rem; }
+}

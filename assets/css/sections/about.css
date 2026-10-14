@@ -1,0 +1,57 @@
+/* ==========================================================================
+   ABOUT (Profil & Tujuan)
+   Dua blok teks dengan watermark logo gabungan transparan di belakangnya.
+   ========================================================================== */
+
+.about {
+  padding-block: 4rem;
+  overflow: hidden;
+}
+.about__watermark {
+  position: absolute;
+  right: -5.625rem;
+  top: 7.5rem;
+  width: 20rem;
+  object-fit: contain;
+  opacity: 0.12;
+  pointer-events: none;
+}
+.about__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+.about__block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.about__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.about__text {
+  margin: 0;
+  font-size: var(--fs-body-lg);
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 900px) {
+  .about { padding-block: 7rem; }
+  .about__watermark {
+    right: 3.6875rem;
+    top: 4.625rem;
+    width: 43.75rem;
+    height: 34.25rem;
+    object-fit: cover;
+    object-position: 50% 2.8457%;
+    opacity: 0.8;
+  }
+  .about__inner { gap: 6rem; }
+}
