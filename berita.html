@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SISTEKINEWS — HIMASISTA Untag Surabaya</title>
+  <meta name="description" content="Kabar terbaru seputar kegiatan, prestasi, dan kolaborasi HIMASISTA Untag Surabaya.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SISTEKINEWS — HIMASISTA Untag Surabaya">
+  <meta property="og:image" content="assets/images/meta/og-image.jpg">
+  <link rel="icon" type="image/png" href="assets/images/meta/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="assets/css/base/tokens.css">
+  <link rel="stylesheet" href="assets/css/base/reset.css">
+  <link rel="stylesheet" href="assets/css/base/typography.css">
+  <link rel="stylesheet" href="assets/css/layout/container.css">
+  <link rel="stylesheet" href="assets/css/layout/section.css">
+  <link rel="stylesheet" href="assets/css/components/navbar.css">
+  <link rel="stylesheet" href="assets/css/components/mobile-menu.css">
+  <link rel="stylesheet" href="assets/css/components/button.css">
+  <link rel="stylesheet" href="assets/css/components/chip.css">
+  <link rel="stylesheet" href="assets/css/components/media.css">
+  <link rel="stylesheet" href="assets/css/components/card-news.css">
+  <link rel="stylesheet" href="assets/css/components/decor.css">
+  <link rel="stylesheet" href="assets/css/components/section-head.css">
+  <link rel="stylesheet" href="assets/css/components/footer.css">
+  <link rel="stylesheet" href="assets/css/pages/berita-detail.css">
+  <link rel="stylesheet" href="assets/css/utilities/animations.css">
+  <link rel="stylesheet" href="assets/css/utilities/helpers.css">
+
+  <!-- Entry point halaman: baca ?id=, isi artikel dari data/berita.js, pasang filter daftar lainnya -->
+  <script type="module" src="assets/js/pages/berita.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a class="navbar__brand" href="index.html" aria-label="HIMASISTA — ke beranda">
+        <img class="navbar__logo" src="assets/images/brand/logo-himasista.png" alt="" width="52" height="52">
+        <span class="navbar__brand-text">
+          <span class="navbar__name">HIMASISTA</span>
+          <span class="navbar__campus">UNTAG SURABAYA</span>
+        </span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navigasi utama">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="index.html">Home</a></li>
+          <li><a class="navbar__link" href="index.html#tentang">Profil</a></li>
+          <li><a class="navbar__link" href="index.html#departemen">Departemen</a></li>
+          <li><a class="navbar__link navbar__link--active" href="index.html#berita" aria-current="page">Berita</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="index.html#proker">Program Kerja</a>
+      </nav>
+
+      <button class="navbar__toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu" data-js="menu-toggle">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigasi utama (seluler)" hidden data-js="menu-panel">
+      <ul class="mobile-menu__list">
+        <li><a class="mobile-menu__link" href="index.html">Beranda</a></li>
+        <li><a class="mobile-menu__link" href="index.html#tentang">Profil</a></li>
+        <li><a class="mobile-menu__link" href="index.html#departemen">Departemen</a></li>
+        <li><a class="mobile-menu__link" href="index.html#proker">Program Kerja</a></li>
+        <li><a class="mobile-menu__link" href="index.html#berita">SISTEKINEWS</a></li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="#kontak">Hubungi Kami</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= ARTIKEL =================
+         Diisi berita.js dari data/berita.js berdasarkan ?id= -->
+    <article class="article section section--ice" data-js="news-content">
+      <div class="container">
+        <a class="btn btn--ghost btn--sm back-link" href="index.html#berita"><span aria-hidden="true">←</span> Kembali ke SISTEKINEWS</a>
+
+        <header class="article__head anim-fade-up">
+          <p class="chip-row">
+            <span class="chip chip--blue" data-js="news-category"></span>
+            <span class="article__source">SISTEKINEWS</span>
+          </p>
+          <h1 class="article__title" data-js="news-title">Memuat…</h1>
+          <ul class="article__meta">
+            <li><time data-js="news-date"></time></li>
+            <li data-js="news-author"></li>
+            <li data-js="news-location"></li>
+          </ul>
+        </header>
+
+        <!-- Foto utama: assets/images/berita/<id>.webp -->
+        <figure class="media media--16x9 media--kenburns article__cover anim-fade-up">
+          <img data-js="news-cover" src="" alt="" width="1248" height="600">
+        </figure>
+
+        <div class="article__layout">
+          <!-- Tombol bagikan (Web Share API dengan fallback salin tautan, dipasang JS) -->
+          <div class="article__share">
+            <span class="article__share-label">Bagikan</span>
+            <button class="icon-btn" type="button" aria-label="Bagikan berita" data-js="share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="M8.2 10.8l7.6-4.5M8.2 13.2l7.6 4.5"></path></svg></button>
+            <button class="icon-btn" type="button" aria-label="Salin tautan" data-js="copy-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"></path></svg></button>
+          </div>
+
+          <!-- Isi artikel: paragraf, kutipan, dan foto dokumentasi dirender dari data -->
+          <div class="article__body" data-js="news-body"></div>
+
+          <!-- Ringkasan kegiatan terkait -->
+          <aside class="summary-card reveal" aria-label="Sekilas kegiatan">
+            <p class="summary-card__label">Sekilas</p>
+            <dl class="summary-card__list">
+              <div><dt>Kegiatan</dt><dd data-js="news-event"></dd></div>
+              <div><dt>Penyelenggara</dt><dd data-js="news-organizer"></dd></div>
+              <div><dt>Tanggal</dt><dd data-js="news-event-date"></dd></div>
+            </dl>
+            <!-- href diisi JS hanya jika berita terhubung ke sebuah proker -->
+            <a class="btn btn--light btn--block" href="#" data-js="news-proker-link" hidden>Lihat program kerja <span class="btn__arrow" aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================= BERITA LAINNYA (list lengkap + filter kategori) ================= -->
+    <section class="news-list section section--white">
+      <div class="container">
+        <div class="news-list__head">
+          <header class="section-head reveal">
+            <p class="section-head__kicker">SISTEKINEWS</p>
+            <h2 class="section-head__title">Berita Lainnya</h2>
+            <span class="accent-bar accent-bar--navy" aria-hidden="true"></span>
+          </header>
+          <div class="chip-scroll" role="group" aria-label="Filter kategori" data-js="filter-category"></div>
+        </div>
+
+        <ul class="news-list__grid" data-js="news-list"></ul>
+        <p class="empty-state" hidden data-js="news-empty">Belum ada berita di kategori ini.</p>
+      </div>
+    </section>
+
+    <!-- Fallback jika ?id= tidak valid -->
+    <section class="not-found section section--ice" hidden data-js="not-found">
+      <div class="container container--narrow">
+        <h1 class="not-found__title">Berita tidak ditemukan</h1>
+        <p>Tautan yang kamu buka mungkin salah atau sudah tidak berlaku.</p>
+        <a class="btn btn--primary" href="index.html#berita">Kembali ke SISTEKINEWS</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER (identik di ke-4 halaman) ================= -->
+  <footer class="footer" id="kontak">
+    <div class="footer__card">
+      <div class="footer__top">
+        <div class="footer__identity">
+          <span class="footer__logo-box">
+            <img src="assets/images/brand/logo-himasista.png" alt="Logo HIMASISTA" width="60" height="60" loading="lazy">
+          </span>
+          <div>
+            <p class="footer__name">HIMASISTA</p>
+            <address class="footer__address">
+              Sekretariat HIMASISTA, Gedung Fakultas Teknik Lt. 2<br>
+              Universitas 17 Agustus 1945 Surabaya<br>
+              Jl. Semolowaru No. 45, Surabaya
+            </address>
+          </div>
+        </div>
+
+        <dl class="footer__contact">
+          <dt>Email</dt>
+          <dd><a href="mailto:sekretariat@himasista.id">sekretariat@himasista.id</a></dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+6281200001111">+62 812-0000-1111 (Rani)</a></dd>
+          <dd><a href="tel:+6285700002222">+62 857-0000-2222 (Dimas)</a></dd>
+        </dl>
+      </div>
+
+      <hr class="footer__divider">
+
+      <div class="footer__bottom">
+        <ul class="footer__socials">
+          <li><a class="footer__social" href="#" aria-label="Instagram HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8"></circle></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="LinkedIn HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"></path></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="YouTube HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3V9z"></path></svg></a></li>
+          <li><a class="footer__social" href="#" aria-label="TikTok HIMASISTA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5"></path><path d="M14 3c.5 2.5 2.3 4.2 5 4.5"></path></svg></a></li>
+        </ul>
+        <p class="footer__copy">© 2026 HIMASISTA Untag Surabaya. All rights reserved.</p>
+      </div>
+
+      <p class="footer__wordmark" aria-hidden="true">HIMASISTA</p>
+    </div>
+  </footer>
+
+</body>
+</html>
