@@ -1,0 +1,100 @@
+/* ==========================================================================
+   DESIGN TOKENS
+   Satu sumber kebenaran untuk warna, tipografi, spacing, radius, shadow.
+   Semua file CSS lain HARUS memakai var(--...) di sini, jangan tulis hex/px
+   langsung, supaya ganti tema/skala cukup di satu tempat.
+   ========================================================================== */
+:root {
+
+  /* --- Warna dasar (diambil dari desain canvas, jangan diubah sembarangan) --- */
+  --color-ink: #0B1F4B;          /* navy utama: teks judul, background navy */
+  --color-ink-soft: #33415F;     /* teks paragraf di atas background terang */
+  --color-ink-muted: #4B5B78;    /* teks sekunder/label */
+  --color-ink-faint: #6A7B9C;    /* teks tersier, meta info */
+  --color-accent: #1F4FD1;       /* biru aksen: tombol utama, link, ikon aktif */
+  --color-accent-hover: #163BA3; /* biru aksen saat hover */
+  --color-cyan: #14B8C4;         /* cyan: aksen sekunder, garis bawah, dot */
+  --color-cyan-light: #7FE3EA;   /* cyan terang: teks kicker di atas navy */
+
+  --color-ice: #EEF3FA;          /* background "terang" (section--ice) */
+  --color-surface: #FFFFFF;      /* background "putih" (section--white), kartu */
+  --color-border: #D8E3F0;       /* border kartu/navbar di atas putih */
+  --color-border-soft: #E3ECF8;  /* border tipis, pembatas list */
+  --color-chip-bg: #EAF1FF;      /* background chip/ikon bulat */
+
+  --color-on-dark: #FFFFFF;      /* teks di atas background navy */
+  --color-on-dark-muted: #B9C6E0;/* teks sekunder di atas background navy */
+
+  /* --- Warna status badge Program Kerja --- */
+  --color-status-rencana-bg: #EEF1F6;
+  --color-status-rencana-fg: #4B5B78;
+  --color-status-berjalan-bg: #FFF3D6;
+  --color-status-berjalan-fg: #7A5410;
+  --color-status-selesai-bg: #E1F5EE;
+  --color-status-selesai-fg: #0F6B4F;
+
+  /* --- Pola grid biru tipis di background "ice" (nuansa blueprint/tech) --- */
+  --pattern-grid-line: rgba(11, 31, 75, 0.05);
+  --pattern-grid-size: 48px;
+  --pattern-grid:
+    linear-gradient(var(--pattern-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pattern-grid-line) 1px, transparent 1px);
+
+  /* --- Font --- */
+  --font-display: 'Unbounded', sans-serif;   /* judul */
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif; /* isi/UI */
+
+  /* --- Skala tipografi cair (fluid), dihitung dari perbandingan
+     ukuran asli di board Mobile (390px) vs Desktop (1440px) di canvas,
+     jadi transisinya proporsional, bukan tebakan. Format:
+     clamp(ukuran-mobile, nilai-tengah-cair, ukuran-desktop) --- */
+  --fs-hero-title: clamp(3.375rem, 2.49rem + 3.62vw, 5.75rem);   /* "ECLIPSE": 54px → 92px */
+  --fs-h2-xl: clamp(2rem, 1.07rem + 3.81vw, 4.5rem);             /* "Program Kerja"/"SISTEKINEWS": 32px → 72px */
+  --fs-h2: clamp(1.875rem, 1.36rem + 2.1vw, 3.25rem);            /* "Apa itu HIMASISTA?": 30px → 52px */
+  --fs-h2-sm: clamp(1.75rem, 1.38rem + 1.52vw, 2.75rem);         /* "Departemen HIMASISTA": 28px → 44px */
+  --fs-tagline: clamp(1.25rem, 1.11rem + 0.57vw, 1.625rem);      /* tagline hero: 20px → 26px */
+  --fs-body-lg: clamp(1rem, 0.91rem + 0.38vw, 1.25rem);          /* paragraf lead: 16px → 20px */
+  --fs-body: clamp(0.9375rem, 0.84rem + 0.38vw, 1.1875rem);      /* paragraf standar: 15px → 19px */
+  --fs-kicker: clamp(0.75rem, 0.7rem + 0.19vw, 0.875rem);        /* label kecil huruf besar: 12px → 14px */
+
+  /* Ukuran UI (tombol, nav, chip) tetap/tidak cair — di desain aslinya
+     ukuran ini tidak ikut menyusut mengikuti lebar layar, hanya layoutnya
+     yang berubah dari pill nav (desktop) ke panel menu (mobile). */
+  --fs-nav-link: 0.9375rem;   /* 15px */
+  --fs-button: 1rem;          /* 16px */
+  --fs-small: 0.875rem;       /* 14px */
+  --fs-caption: 0.75rem;      /* 12px, mis. "UNTAG SURABAYA" di brand */
+
+  /* --- Spacing scale (dipakai untuk gap, padding, margin) --- */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-7: 2rem;     /* 32px */
+  --space-8: 2.5rem;   /* 40px */
+  --space-9: 3rem;     /* 48px */
+  --space-10: 4rem;    /* 64px */
+  --space-11: 6rem;    /* 96px */
+  --space-12: 7rem;    /* 112px */
+
+  /* --- Radius --- */
+  --radius-full: 999px;  /* pill: tombol, navbar, chip */
+  --radius-lg: 1.5rem;   /* 24px: kartu besar */
+  --radius-md: 1rem;     /* 16px: kartu sedang, gambar */
+  --radius-sm: 0.75rem;  /* 12px: kartu kecil */
+  --radius-xs: 0.5rem;   /* 8px: elemen kecil */
+
+  /* --- Shadow --- */
+  --shadow-nav: 0 12px 32px rgba(11, 31, 75, 0.06);
+  --shadow-card-hover: 0 24px 48px rgba(11, 31, 75, 0.12);
+  --shadow-card-hover-lg: 0 28px 56px rgba(11, 31, 75, 0.1);
+
+  /* --- Easing/transition --- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* --- Breakpoint (dipakai sebagai angka literal di @media, dicatat di sini
+     supaya konsisten; CSS custom property TIDAK bisa dipakai langsung di
+     dalam kondisi @media). Mobile: di bawah 900px. Desktop: 900px ke atas. --- */
+}

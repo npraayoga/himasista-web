@@ -1,0 +1,64 @@
+/* ==========================================================================
+   TYPOGRAPHY
+   Penerapan font, warna teks dasar, link, seleksi teks, dan focus state.
+   ========================================================================== */
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+  background-color: var(--color-ice);
+  /* Pola grid biru tipis jadi tampilan default halaman ("blueprint tech").
+     Section dengan background solid (putih/navy) menutupinya. */
+  background-image: var(--pattern-grid);
+  background-size: var(--pattern-grid-size) var(--pattern-grid-size);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+p {
+  color: var(--color-ink-soft);
+}
+
+a {
+  color: var(--color-accent);
+}
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Warna highlight saat teks di-select/blok */
+::selection {
+  background: var(--color-cyan);
+  color: var(--color-ink);
+}
+
+/* Outline fokus untuk pengguna keyboard, dibuat jelas (aksesibilitas) */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-cyan);
+  outline-offset: 3px;
+}
+
+/* Tombol "Lewati ke konten utama" — tersembunyi sampai di-fokus via Tab */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 100;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  border-radius: var(--radius-xs);
+  font-weight: 700;
+  transition: top 0.2s var(--ease-out);
+}
+.skip-link:focus {
+  top: var(--space-4);
+}
