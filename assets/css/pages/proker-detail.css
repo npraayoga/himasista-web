@@ -1,0 +1,165 @@
+/* ==========================================================================
+   PAGE: DETAIL PROGRAM KERJA
+   Header navy (info + poster), section Tujuan/Tentang/Rangkaian, galeri,
+   dan section "Program Kerja Lainnya".
+   ========================================================================== */
+
+.proker-hero {
+  padding-block: 2rem 3rem;
+}
+/* Tombol kembali, grid (judul + kartu info), dan poster ada di dalam
+   .container → jarak antar-blok diatur di sini */
+.proker-hero > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.proker-hero__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.proker-hero__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.proker-hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.9rem + 2vw, 3.75rem); /* 36px → 60px */
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-on-dark);
+}
+.proker-hero__summary {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--color-on-dark-muted);
+  max-width: 47.5rem;
+}
+
+/* Kartu putih berisi info pelaksanaan, "mengambang" di atas band navy */
+.info-card {
+  box-sizing: border-box;
+  padding: 1.75rem;
+  border-radius: 1.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.info-card__list { display: flex; flex-direction: column; gap: 1rem; }
+.info-card__item { display: flex; gap: 0.875rem; align-items: flex-start; }
+/* Kotak ikon biru muda di kiri tiap baris info (ikon SVG ada di HTML) */
+.info-card__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-chip-bg);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+/* Label di atas, nilai di bawah (bukan berdampingan) */
+.info-card__text { display: flex; flex-direction: column; gap: 2px; }
+.info-card__label { font-size: 0.8125rem; color: var(--color-ink-muted); }
+.info-card__value { font-size: 1rem; font-weight: 700; color: var(--color-ink); }
+
+.proker-hero .media { height: 15.625rem; }
+
+.proker-info { padding-block: 3.5rem; }
+.proker-info__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.proker-info__title {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+.proker-info__text { margin: 0; font-size: var(--fs-small); line-height: 1.8; color: var(--color-ink-soft); }
+
+/* Daftar tujuan bertanda centang bulat hijau */
+.check-list { display: flex; flex-direction: column; gap: 0.875rem; }
+.check-list li { display: flex; gap: 0.875rem; align-items: flex-start; }
+.check-list li::before {
+  content: "✓";
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-status-selesai-bg);
+  color: var(--color-status-selesai-fg);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.check-list span { font-size: var(--fs-small); line-height: 1.6; color: var(--color-ink-soft); }
+
+.gallery { padding-block: 3.5rem; }
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.gallery__grid .media:first-child {
+  grid-column: span 2;
+  aspect-ratio: 16 / 10;
+}
+.gallery__grid .media:not(:first-child) { aspect-ratio: 1 / 1; }
+
+.proker-list { padding-block: 3.5rem 3rem; }
+.proker-list__head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.proker-list__count { font-size: var(--fs-small); color: var(--color-ink-muted); margin: 0.75rem 0; }
+.empty-state {
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  border: 1px dashed #B8C7DE;
+  text-align: center;
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 900px) {
+  .proker-hero { padding-block: 2rem 4.5rem; }
+  .proker-hero > .container { gap: 2.5rem; } /* 40px, sesuai desain */
+  .proker-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 25rem;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  .proker-hero .media { height: 32.5rem; }
+
+  .proker-info { padding-block: 5.5rem; }
+  .proker-info__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5rem; }
+  .proker-info__title { font-size: 2.25rem; }
+
+  .gallery { padding-block: 5.5rem; }
+  .gallery__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: 13.75rem 13.75rem;
+    gap: 1.25rem;
+  }
+  .gallery__grid .media:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+  .gallery__grid .media:nth-child(4) { grid-column: span 2; }
+  .gallery__grid .media:not(:first-child) { aspect-ratio: auto; }
+
+  .proker-list { padding-block: 5.5rem 4.5rem; }
+  .proker-list__head { flex-direction: row; align-items: center; justify-content: space-between; }
+}
